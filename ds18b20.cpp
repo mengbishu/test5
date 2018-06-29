@@ -28,8 +28,8 @@
  * THE SOFTWARE.
  */
 
-
 #include "MicroBit.h"
+#include "pxt.h"
 #include "TimedInterruptIn.h"
 #include <cstdio>
 #include <cmath>
@@ -508,9 +508,10 @@ namespace DS18B20 {
   };
 */
   //MicroBit uBit;
+  MicroBitPin pin = uBit.io.P0;
   //%
   int16_t Temperature(int p) {
-    MicroBitPin pin = uBit.io.P0;
+    
     switch(p){
       case 0: pin = uBit.io.P0; break;
       case 1: pin = uBit.io.P1; break;
@@ -533,6 +534,7 @@ namespace DS18B20 {
 //    oneWire.singleDeviceReadROM(address);
 //    oneWire.convertTemperature(address, true, true);
 //    return oneWire.temperature(address);
+    printf("%d\n",pin.name)
     return 0;
   }
 }
